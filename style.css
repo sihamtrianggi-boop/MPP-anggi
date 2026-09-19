@@ -1,0 +1,488 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    min-height: 100vh;
+    background: #fbe1ef;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #371e2d;
+    overflow: hidden;
+}
+
+.game-wrapper {
+    width: 100%;
+    max-width: 800px;
+}
+
+.screen {
+    width: 100%;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* MENU */
+
+#menuScreen {
+    height: 600px;
+    background-color: #ffe1f0;
+    background-image:
+        linear-gradient(#f5bed7 1px, transparent 1px),
+        linear-gradient(90deg, #f5bed7 1px, transparent 1px);
+    background-size: 25px 25px;
+    text-align: center;
+    padding-top: 65px;
+}
+
+#menuScreen h1 {
+    font-size: 55px;
+    color: #eb468c;
+    margin-bottom: 25px;
+}
+
+.subtitle {
+    font-size: 19px;
+    margin-bottom: 38px;
+}
+
+#menuScreen h3 {
+    font-size: 22px;
+    margin-bottom: 18px;
+}
+
+.mode-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.mode {
+    width: 160px;
+    height: 55px;
+    border: none;
+    border-radius: 15px;
+    background: #ff96c8;
+    color: white;
+    font-size: 19px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.mode.active {
+    background: #eb468c;
+}
+
+.play-btn {
+    display: block;
+    width: 240px;
+    height: 65px;
+    margin: 30px auto 30px;
+    border: none;
+    border-radius: 20px;
+    background: #eb468c;
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.play-btn:active,
+.mode:active,
+#restartBtn:active,
+#exitBtn:active {
+    transform: scale(.96);
+}
+
+.pink-text {
+    color: #eb468c;
+    margin-top: 8px;
+}
+
+/* HEADER */
+
+.header {
+    height: 70px;
+    background: white;
+    border-bottom: 4px solid #ff96c8;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    z-index: 10;
+}
+
+.game-title {
+    color: #eb468c;
+}
+
+/* GAME */
+
+#gameArea {
+    position: relative;
+    width: 800px;
+    height: 530px;
+    overflow: hidden;
+    background-color: #ffe1f0;
+    background-image:
+        linear-gradient(#f5bed7 1px, transparent 1px),
+        linear-gradient(90deg, #f5bed7 1px, transparent 1px);
+    background-size: 25px 25px;
+}
+
+#snake,
+#fruits,
+#particles {
+    position: absolute;
+    inset: 0;
+}
+
+/* SNAKE */
+
+.snake-part {
+    position: absolute;
+    width: 21px;
+    height: 21px;
+    border-radius: 10px;
+}
+
+.snake-eye {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: black;
+    border-radius: 50%;
+}
+
+.snake-eye.white {
+    background: white;
+    width: 7px;
+    height: 7px;
+}
+
+/* FRUIT */
+
+.fruit {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+}
+
+.fruit-body {
+    position: absolute;
+    left: 3px;
+    top: 5px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+}
+
+.fruit-highlight {
+    position: absolute;
+    left: 9px;
+    top: 9px;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+}
+
+.fruit-leaf {
+    position: absolute;
+    left: 14px;
+    top: 1px;
+    width: 10px;
+    height: 6px;
+    background: #50be64;
+    border-radius: 50%;
+}
+
+.fruit-stem {
+    position: absolute;
+    left: 12px;
+    top: 1px;
+    width: 2px;
+    height: 7px;
+    background: #784b2d;
+    transform: rotate(25deg);
+}
+
+/* +1 */
+
+#plusOne {
+    position: absolute;
+    top: 42px;
+    left: 245px;
+    color: #eb468c;
+    font-size: 24px;
+    font-weight: bold;
+    opacity: 0;
+    z-index: 5;
+}
+
+#plusOne.show {
+    animation: plusAnimation .7s ease;
+}
+
+@keyframes plusAnimation {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* JOYSTICK */
+
+#joystick {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    right: 25px;
+    bottom: 20px;
+    border-radius: 50%;
+    background: #ffcee1;
+    box-shadow: 4px 5px 0 #f0afcd;
+    z-index: 20;
+    touch-action: none;
+}
+
+.joystick-inner {
+    position: absolute;
+    width: 95px;
+    height: 95px;
+    left: 27px;
+    top: 27px;
+    border-radius: 50%;
+    background: #ffdcea;
+    border: 4px solid #ff96c8;
+}
+
+.cross {
+    position: absolute;
+    background: #ff96c8;
+}
+
+.cross.horizontal {
+    width: 84px;
+    height: 2px;
+    left: 2px;
+    top: 43px;
+}
+
+.cross.vertical {
+    width: 2px;
+    height: 84px;
+    left: 43px;
+    top: 2px;
+}
+
+#knob {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    left: 43px;
+    top: 43px;
+    border-radius: 50%;
+    background: #eb468c;
+    box-shadow: 3px 4px 0 #dc377d;
+    z-index: 3;
+}
+
+#knob::before {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    left: 17px;
+    top: 15px;
+    background: #ff96c8;
+    border-radius: 50%;
+}
+
+#knob::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    left: 30px;
+    top: 30px;
+    background: white;
+    border-radius: 50%;
+}
+
+/* PARTICLES */
+
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* OVERLAY */
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, .65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 30;
+}
+
+.overlay h2 {
+    color: #eb468c;
+    font-size: 55px;
+    margin-bottom: 20px;
+}
+
+.overlay p {
+    font-size: 19px;
+}
+
+/* GAME OVER */
+
+.game-over {
+    background: rgba(255, 100, 160, .5);
+}
+
+.game-over-box {
+    width: 560px;
+    min-height: 370px;
+    background: white;
+    border: 5px solid #eb468c;
+    border-radius: 30px;
+    text-align: center;
+    padding-top: 28px;
+}
+
+.game-over-box h2 {
+    margin-bottom: 25px;
+}
+
+.game-over-box p {
+    margin: 10px;
+}
+
+#restartBtn,
+#exitBtn {
+    display: block;
+    width: 300px;
+    height: 55px;
+    margin: 20px auto 0;
+    border: none;
+    border-radius: 18px;
+    background: #eb468c;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#exitBtn {
+    margin-top: 15px;
+    background: #ff96c8;
+}
+
+/* MOBILE */
+
+@media (max-width: 850px) {
+
+    body {
+        align-items: flex-start;
+    }
+
+    .game-wrapper {
+        width: 100%;
+    }
+
+    #menuScreen {
+        height: 100vh;
+        padding-top: 70px;
+    }
+
+    #menuScreen h1 {
+        font-size: 40px;
+    }
+
+    .mode-buttons {
+        gap: 10px;
+    }
+
+    .mode {
+        width: 140px;
+    }
+
+    #gameArea {
+        width: 100vw;
+        height: calc(100vh - 70px);
+        max-height: 700px;
+    }
+
+    .header {
+        font-size: 12px;
+        height: 70px;
+    }
+
+    .game-title {
+        font-size: 13px;
+    }
+
+    #joystick {
+        width: 130px;
+        height: 130px;
+        right: 15px;
+        bottom: 15px;
+    }
+
+    .joystick-inner {
+        width: 85px;
+        height: 85px;
+        left: 22px;
+        top: 22px;
+    }
+
+    #knob {
+        width: 58px;
+        height: 58px;
+        left: 36px;
+        top: 36px;
+    }
+
+    .cross.horizontal {
+        width: 74px;
+        top: 39px;
+    }
+
+    .cross.vertical {
+        height: 74px;
+        left: 39px;
+    }
+
+    .game-over-box {
+        width: 90%;
+        min-height: 330px;
+    }
+
+    #restartBtn,
+    #exitBtn {
+        width: 80%;
+    }
+}

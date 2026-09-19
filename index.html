@@ -1,0 +1,89 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Anggi Snake</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="game-wrapper">
+
+    <div id="menuScreen" class="screen">
+        <h1>ANGGI SNAKE</h1>
+        <p class="subtitle">Eat the fruits and grow your snake!</p>
+
+        <h3>PILIH MODE</h3>
+
+        <div class="mode-buttons">
+            <button id="classicBtn" class="mode active">CLASSIC</button>
+            <button id="speedBtn" class="mode">SPEED</button>
+        </div>
+
+        <button id="playBtn" class="play-btn">PLAY</button>
+
+        <p>WASD / Arrow Keys / Joystick</p>
+        <p class="pink-text">P = Pause</p>
+        <p class="pink-text">ESC = Keluar</p>
+    </div>
+
+    <div id="gameScreen" class="screen hidden">
+
+        <div class="header">
+            <div class="game-title">ANGGI SNAKE</div>
+            <div>SKOR : <span id="score">0</span></div>
+            <div>LEVEL <span id="level">1</span></div>
+            <div id="modeDisplay">CLASSIC</div>
+            <div>BUAH : <span id="eaten">0</span>/20</div>
+        </div>
+
+        <div id="gameArea">
+
+            <div id="snake"></div>
+            <div id="fruits"></div>
+            <div id="particles"></div>
+
+            <div id="plusOne">+1</div>
+
+            <div id="joystick">
+                <div class="joystick-inner">
+                    <div class="cross horizontal"></div>
+                    <div class="cross vertical"></div>
+                </div>
+                <div id="knob"></div>
+            </div>
+
+            <div id="pauseOverlay" class="overlay hidden">
+                <h2>PAUSED</h2>
+                <p>Tekan P untuk lanjut</p>
+            </div>
+
+            <div id="gameOverOverlay" class="overlay game-over hidden">
+
+                <div class="game-over-box">
+
+                    <h2>GAME OVER</h2>
+
+                    <p>Skor Kamu : <span id="finalScore">0</span></p>
+                    <p>High Score : <span id="highScore">0</span></p>
+
+                    <button id="restartBtn">MAIN LAGI</button>
+                    <button id="exitBtn" class="exit-btn">KELUAR</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+```
