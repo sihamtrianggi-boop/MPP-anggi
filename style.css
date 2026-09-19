@@ -1,0 +1,140 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #eaf2ff;
+    font-family: Arial, sans-serif;
+}
+
+.game-container {
+    width: 95%;
+    max-width: 850px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.game-area {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 600px;
+    margin: auto;
+    background: white;
+    border: 3px solid #222;
+    overflow: hidden;
+}
+
+#player {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 100px;
+    top: 250px;
+    background: rgb(0, 100, 255);
+}
+
+#target {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 500px;
+    top: 250px;
+    background: rgb(0, 200, 0);
+}
+
+#status {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+}
+
+.controls {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.middle-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.controls button {
+    width: 65px;
+    height: 55px;
+    border: none;
+    border-radius: 12px;
+    background: #1769ff;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    touch-action: manipulation;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.controls button:active {
+    transform: scale(0.92);
+    background: #0d4dcc;
+}
+
+.info {
+    margin-top: 15px;
+    color: #555;
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    body {
+        align-items: flex-start;
+        padding-top: 20px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    .game-area {
+        height: 60vh;
+        min-height: 350px;
+        max-height: 550px;
+    }
+
+    #player {
+        width: 35px;
+        height: 35px;
+    }
+
+    #target {
+        width: 70px;
+        height: 70px;
+    }
+
+    #status {
+        font-size: 17px;
+        top: 12px;
+        left: 12px;
+    }
+
+    .controls button {
+        width: 60px;
+        height: 52px;
+        font-size: 22px;
+    }
+}
